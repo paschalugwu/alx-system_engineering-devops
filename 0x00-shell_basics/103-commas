@@ -1,2 +1,2 @@
 #!/bin/bash
-shopt -s extglob;for entry in *; do echo -n "$entry"; [ -d "$entry" ] && echo -n "/"; echo -n ", "; done; echo ""
+ls -pa | paste -sd ', ' - | sed 's/,$/\n/'
