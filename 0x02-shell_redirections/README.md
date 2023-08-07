@@ -1,1 +1,1 @@
-Here, I write a script that prints “Hello, World”, followed by a new line to the standard output.
+Here, I write the script that prints my outputs.
