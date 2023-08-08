@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l | cut -d' ' -f10
+ls -l | cut -d' ' -f10 | grep '^[13579]'
