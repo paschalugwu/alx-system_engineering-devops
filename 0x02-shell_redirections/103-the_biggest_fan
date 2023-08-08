@@ -1,0 +1,2 @@
+#!/bin/bash
+sort -nr -k2 <(cat "$1") | head -n 11
