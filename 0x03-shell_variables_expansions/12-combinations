@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z}{,^o}{a..z}
+echo -n {a..z}{,^o}{a..z}
