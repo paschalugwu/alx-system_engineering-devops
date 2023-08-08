@@ -1,2 +1,2 @@
 #!/bin/bash
-read -r line
+ls -l | cut -d' ' -f10
