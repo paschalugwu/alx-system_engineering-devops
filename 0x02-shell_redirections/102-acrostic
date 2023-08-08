@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(tr '\n\t ' ' ' | tr -s ' ' | head -c 1 | tr -d '\n')
+echo $(tr -d '\n\t ' | head -c 1)
