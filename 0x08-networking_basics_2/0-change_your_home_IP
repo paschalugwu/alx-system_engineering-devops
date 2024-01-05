@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Configure an Ubuntu server
+
+# Step 1: Backup the current hosts files
+cp /etc/hosts ~/hosts_backup
+
+# Step 2: Create a new host files
+echo "127.0.0.2		localhost" > ~/hosts_new
+echo "8.8.8.8		facebook.com" >> ~/hosts_new
+
+# Step 3: Replace the current hosts files with the new one
+sudo cp -f ~/hosts_new /etc/hosts
+
+# Step 4: Clean up temporary files
+rm ~/hosts_backup ~/hosts_new
