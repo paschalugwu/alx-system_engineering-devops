@@ -32,28 +32,28 @@ By the end of this project, you should be able to:
 - Components: 1 server, 1 web server (Nginx), 1 application server, 1 application files, 1 database (MySQL).
 - Specifics: Role of each component, DNS record types, issues with the infrastructure.
 
-[Task 0 Screenshot](insert_url_here)
+[Task 0 Screenshot](https://imgur.com/DvJUYuI)
 
 #### 1. Distributed web infrastructure
 - Design a three-server web infrastructure for www.foobar.com.
 - Additional components: 2 servers, 1 load balancer (HAproxy).
 - Specifics: Explanation for each additional element, distribution algorithm, Active-Active or Active-Passive setup, Primary-Replica cluster.
 
-[Task 1 Screenshot](insert_url_here)
+[Task 1 Screenshot](https://imgur.com/8erZajf)
 
 #### 2. Secured and monitored web infrastructure
 - Design a three-server web infrastructure for www.foobar.com with security measures and monitoring.
 - Additional components: 3 firewalls, SSL certificate, 3 monitoring clients.
 - Specifics: Purpose of additional elements, SSL for encrypted traffic, monitoring data collection.
 
-[Task 2 Screenshot](insert_url_here)
+[Task 2 Screenshot](https://imgur.com/lZq1XHd)
 
 #### 3. Scale up (Advanced)
 - Explore scaling by adding another server and configuring load balancing as a cluster.
 - Components: 1 server, 1 load balancer (HAproxy).
 - Specifics: Explanation for each additional element.
 
-[Task 3 Screenshot](insert_url_here)
+[Task 3 Screenshot](https://imgur.com/iTgA0GZ)
 
 ## Copyright and Plagiarism
 - Solutions for tasks must be original.
