@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-# This script configures the SSH client to use a specific private key for authentication and refuse password authenrication.
-echo "Host *" >> ~/.ssh/config
-echo "  PasswordAuthentication no" >> ~/.ssh/config
-echo "  IdentityFile ~/.ssh/school" >> ~/.ssh/config
+# ssh config file
+Host *
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
