@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash scrip to install Nginx on Ubuntu machine & configure to listen@port80
+# Installs Nginx
 
 apt-get update
 apt-get -y install nginx
@@ -8,10 +8,10 @@ mkdir -p /etc/nginx/html
 touch /etc/nginx/html/index.html
 echo "Hello World!" > /etc/nginx/html/index.html
 printf %s "server {
-    listen     80 default_server;
-    listen     [::]:80 default_server;
-    root       /etc/nginx/html;
-    index      index.html index.htm;
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /etc/nginx/html;
+     index       index.html index.htm;
 }
 " > /etc/nginx/sites-available/default
 
