@@ -12,11 +12,11 @@ sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html /var/www/error
 sudo chmod -R 755 /var/www
 
-# Create index.html and 404.html files
-echo 'Hello World!' > /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+# Create index.html and 404.html files with sudo
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
+sudo bash -c 'echo "Ceci n'"'"'est pas une page" > /var/www/html/404.html'
 
-# Configure Nginx server block
+# Configure Nginx server block with sudo
 server_config=\
 "server {
 	listen 80 default_server;
@@ -36,7 +36,7 @@ server_config=\
 		internal;
 	}
 }"
-echo "$server_config" > /etc/nginx/sites-enabled/default
+sudo bash -c "echo \"$server_config\" > /etc/nginx/sites-enabled/default"
 
 # Restart Nginx service to apply changes
 sudo service nginx restart
