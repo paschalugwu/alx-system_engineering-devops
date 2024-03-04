@@ -12,31 +12,32 @@ sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html /var/www/error
 sudo chmod -R 755 /var/www
 
-# Create index.html and 404.html files with sudo
+# Create index.html and 404.html files
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
 sudo bash -c 'echo "Ceci n'"'"'est pas une page" > /var/www/html/404.html'
 
-# Configure Nginx server block with sudo
-server_config=\
-"server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-	server_name _;
-	add_header X-Served-By \$hostname;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-	}
-	error_page 404 /404.html;
-	location = /404.html {
-		internal;
-	}
+# Configure Nginx server block
+server_config="server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    add_header X-Served-By \$hostname;
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+    if (\$request_filename ~ redirect_me){
+        rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+    }
+    error_page 404 /404.html;
+    location = /404.html {
+        internal;
+    }
 }"
-sudo bash -c "echo \"$server_config\" > /etc/nginx/sites-enabled/default"
+
+# Echo server configuration to Nginx default configuration file
+echo "$server_config" | sudo tee /etc/nginx/sites-enabled/default > /dev/null
 
 # Restart Nginx service to apply changes
 sudo service nginx restart
