@@ -6,7 +6,7 @@ exec { 'add nginx stable repo':
 
 # update software packages list
 exec { 'update packages':
-  command => 'apt-get update',
+  command => 'sudo apt-get update',
   path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
