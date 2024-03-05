@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Configures an Nginx server to listen on port 80.
+
+# Remove default Nginx configuration file with sudo permission
+sudo rm /etc/nginx/sites-enabled/default
+
+# Check if symbolic link exists before creating it
+if [ ! -e /etc/nginx/sites-enabled/default ]; then
+    sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+fi
+
+# Restart Nginx service with sudo permission
+sudo service nginx restart
