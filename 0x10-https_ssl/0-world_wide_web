@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This script displays information about subdomains
+
+# Define the variables for the domain and subdomain
+domain="$1"
+subdomain="$2"
+
+# Define a function that will use the `dig` command to get the DNS information for a given subdomain
+# and `awk` to parse the output and print the required information
+get_subdomain_info() {
+    # Local variable for the subdomain
+    local sub="$1"
+
+    # Use `dig` to get the DNS information and `awk` to parse the output
+    dig "$sub"."$domain" | awk -v subdomain="$sub" -v domain="$domain" '/ANSWER SECTION/,/AUTHORITY SECTION/ {if ($1 == subdomain"."domain".") print "The subdomain", $1, "is a", $4, "record and points to", $5}'
+}
+
+# Use an if-else statement to check if a subdomain argument was provided
+if [ -z "$subdomain" ]
+then
+    # If no subdomain argument was provided, call the function for each of the subdomains
+    get_subdomain_info www
+    get_subdomain_info lb-01
+    get_subdomain_info web-01
+    get_subdomain_info web-02
+else
+    # If a subdomain argument was provided, call the function with the subdomain argument
+    get_subdomain_info "$subdomain"
+fi
