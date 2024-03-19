@@ -29,7 +29,7 @@ sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
 sudo apt-get update -y
 
 # Install MySQL 5.7
-sudo apt-get install -y mysql-server-5.7
+sudo apt-get install -y mysql-server-5.7.25
 
 # Start the MySQL service
 sudo systemctl start mysql
