@@ -5,4 +5,4 @@
 sudo apt-get update -y
 
 # Install MySQL 5.7
-sudo apt-get install -y mysql-server-5.7
+sudo apt-get install -y mysql-server
