@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Configures a ufw firewall to block all incoming traffic
+#+ except for TCP ports 22, 443 and 80.
+
+# Install ufw
+sudo apt-get install ufw
+
+# Enable IPv6 in ufw configuration
+sudo sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
+
+# Disable ufw to reconfigure rules
+sudo ufw disable
+
+# Enable ufw with the new settings
+sudo ufw enable
+
+# Set default rules for incoming ond outgoing traffic
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow incoming traffic on port 22 (SSH)
+sudo ufw allow 22/tcp
+
+# Allow incoming traffic on port 443 (HTTPS SSL)
+sudo ufw allow 443/tcp
+
+# Allow incoming traffic on port 80 (HTTP)
+ufw allow 80/tcp
