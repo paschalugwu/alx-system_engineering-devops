@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script configures ufw to forward traffic from port 8080 to port 80
+
+# Confirm the installation of ufw
+sudo apt-get install ufw -y
+
+# Enable the UFW firewall
+sudo ufw enable
+
+# We need to allow incoming traffic on port 8080/TCP
+sudo ufw allow 8080/tcp
+
+# Now, we need to modify the UFW configuration file to set up port forwarding
+sudo sed -i '1i*nat\n:PREROUTING ACCEPT [0:0]\n-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\nCOMMIT\n' /etc/ufw/before.rules
+
+# Finally, we need to reload the UFW firewall for our changes to take effect
+sudo ufw reload
