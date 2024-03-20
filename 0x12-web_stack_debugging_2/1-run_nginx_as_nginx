@@ -9,3 +9,4 @@ sed -i 's/listen 80 default_server/listen 8080 default_server/' /etc/nginx/sites
 
 # Restart Nginx to apply the changes
 service nginx restart
+
