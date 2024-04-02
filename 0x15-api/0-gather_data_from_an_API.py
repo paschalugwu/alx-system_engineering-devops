@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Script to gather data from a REST API."""
-# Import the necessary modules
 import requests
 import sys
 
