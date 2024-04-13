@@ -1,15 +1,11 @@
-# This is a Puppet manifest to ensure Apache is installed and running
-
-class { 'apache':
-  default_vhost => false,
+# fix file extension typo
+exec { 'replace phpp with php':
+  command  => 'sed -ie \'s/class-wp-locale.phpp/class-wp-locale.php/\' /var/www/html/wp-settings.php',
+  provider => shell
 }
 
-apache::vhost { '127.0.0.1':
-  port    => '80',
-  docroot => '/var/www/html',
-}
-
-service { 'apache2':
-  ensure => running,
-  enable => true,
+#restart apache2
+exec { 'restart apache2 service':
+  command  => 'service apache2 restart',
+  provider => shell
 }
