@@ -1,5 +1,13 @@
-# change the limit ofopen files in nginx config
-exec {'change limit':
-  command  => "sudo sed -i 's/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/g' /etc/default/nginx",
-  provider => shell
+# Increases the amount of traffic an Nginx server can handle.
+
+# Increase the ULIMIT of the default file
+exec { 'fix--for-nginx':
+  command => '/bin/sed -i "s/15/4096/" /etc/default/nginx',
+  path    => ['/usr/local/bin/', '/bin/'],
+}
+
+# Restart Nginx
+exec { 'nginx-restart':
+  command => '/etc/init.d/nginx restart',
+  path    => ['/etc/init.d/'],
 }
